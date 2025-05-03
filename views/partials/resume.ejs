@@ -1,0 +1,337 @@
+<section class="resume-section">
+    <div class="section-title">
+        <h2>Resume</h2>
+        <span class="line"></span>
+    </div>
+    
+    <div class="resume-content">
+        <div class="resume-column animate-on-scroll" data-animation="fadeInLeft">
+            <h3 class="resume-heading">Education</h3>
+            
+            <div class="timeline">
+                <% if(data.education && data.education.length > 0) { %>
+                    <% data.education.forEach(edu => { %>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4><%= edu.degree %></h4>
+                                <% if(edu.percentage && edu.percentage !== "") { %>
+                                    <span class="percentage-badge"><%= edu.percentage %></span>
+                                <% } %>
+                                <p class="institution"><%= edu.institution %></p>
+                            </div>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <p>No education data available</p>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+            
+            <h3 class="resume-heading">Experience</h3>
+            
+            <div class="timeline">
+                <% if(data.experience && data.experience.length > 0) { %>
+                    <% data.experience.forEach(exp => { %>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4><%= exp.position %></h4>
+                                <% if(exp.responsibilities && exp.responsibilities.length > 0) { %>
+                                    <ul class="resume-list">
+                                        <% exp.responsibilities.forEach(resp => { %>
+                                            <li><%= resp %></li>
+                                        <% }); %>
+                                    </ul>
+                                <% } %>
+                            </div>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <p>No experience data available</p>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        
+        <div class="resume-column animate-on-scroll" data-animation="fadeInRight">
+            <h3 class="resume-heading">Programming Languages</h3>
+            
+            <div class="skills-container">
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <p>Java</p>
+                        <p>80%</p>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="80%" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <p>Python</p>
+                        <p>85%</p>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="80%" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <p>C/C++</p>
+                        <p>75%</p>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="75%" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <p>Advance Java</p>
+                        <p>75%</p>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="70%" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="resume-heading">Languages</h3>
+            
+            <div class="skills-container">
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <p>English</p>
+                        <p>75%</p>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="90%" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <p>Hindi</p>
+                        <p>95%</p>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="95%" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <p>Marathi</p>
+                        <p>100%</p>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="100%" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="resume-heading">Soft Skills</h3>
+            
+            <div class="skills-container">
+                <% if(data.skills && data.skills.other && data.skills.other.length > 0) { %>
+                    <% data.skills.other.forEach((skill, index) => { %>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <p><%= skill %></p>
+                                <p><%= 95 - (index * 5) %>%</p>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="<%= 95 - (index * 5) %>%" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <div class="skill-item">
+                        <p>No soft skills data available</p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Add these animations to your CSS file */
+    .timeline-item {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease;
+    }
+    
+    .timeline-item.animate {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .timeline-dot {
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        position: relative;
+    }
+    
+    .timeline-item:hover .timeline-dot {
+        transform: scale(1.3);
+        box-shadow: 0 0 15px var(--primary-color);
+        background-color: var(--accent-color, #4caf50);
+    }
+    
+    .timeline-dot::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: var(--primary-color);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.6;
+        z-index: -1;
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% {
+            width: 0;
+            height: 0;
+            opacity: 0.6;
+        }
+        70% {
+            width: 25px;
+            height: 25px;
+            opacity: 0;
+        }
+        100% {
+            width: 0;
+            height: 0;
+            opacity: 0;
+        }
+    }
+    
+    .skill-progress {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .skill-progress::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transform: translateX(-100%);
+        animation: shimmer 2s infinite;
+    }
+    
+    @keyframes shimmer {
+        100% {
+            transform: translateX(100%);
+        }
+    }
+    
+    .resume-heading {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+    
+    .resume-heading::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary-color);
+        transition: width 0.8s ease;
+    }
+    
+    .resume-heading.animate::after {
+        width: 100%;
+    }
+    
+    [data-animation="fadeInLeft"] {
+        opacity: 0;
+        transform: translateX(-30px);
+        transition: all 0.8s ease;
+    }
+    
+    [data-animation="fadeInRight"] {
+        opacity: 0;
+        transform: translateX(30px);
+        transition: all 0.8s ease;
+    }
+    
+    [data-animation].in-view {
+        opacity: 1;
+        transform: translateX(0);
+    }
+</style>
+
+<script>
+    // Add this to your main.js file or in a script tag at the end of your body
+    document.addEventListener('DOMContentLoaded', function() {
+        // Animate timeline items sequentially
+        function animateTimeline() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const headings = document.querySelectorAll('.resume-heading');
+            
+            // Animate headings
+            headings.forEach((heading, index) => {
+                setTimeout(() => {
+                    heading.classList.add('animate');
+                }, index * 300);
+            });
+            
+            // Animate timeline items
+            timelineItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('animate');
+                }, 500 + (index * 200));
+            });
+        }
+        
+        // Animate elements when they come into view
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('[data-animation]');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+        
+        // Initialize animations
+        handleScrollAnimations();
+        
+        // Check if we're on the resume page and animate timeline
+        if (document.querySelector('.resume-section')) {
+            animateTimeline();
+        }
+    });
+</script>

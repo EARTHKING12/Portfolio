@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= data.name %>'s Portfolio</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile">
+                <div class="profile-img">
+                    <img src="/images/myphoto.jpeg" alt="Profile Image">
+                </div>
+                <h1><%= data.name %></h1>
+                <p class="profession"><%= data.title %></p>
+                
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p><a href="mailto:<%= data.email %>" class="email-link"><%= data.email %></a></p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p><%= data.phone %></p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Pune, India</p>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://github.com/EARTHKING12" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/pruthviraj-rathod-14a9302b0/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                
+                <div class="download-cv">
+                    <a href="/images/Pruthviraj_Rathod_CV.pdf" class="btn" download>Download CV</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Navigation -->
+            <!-- Add this near the top of your navbar -->
+            <nav class="navbar">
+                <ul>
+                    <li class="<%= page === 'about' ? 'active' : '' %>"><a href="/about">About</a></li>
+                    <li class="<%= page === 'resume' ? 'active' : '' %>"><a href="/resume">Resume</a></li>
+                    <li class="<%= page === 'projects' ? 'active' : '' %>"><a href="/projects">Projects</a></li>
+                    <li class="<%= page === 'contact' ? 'active' : '' %>"><a href="/contact">Contact</a></li>
+                </ul>
+                
+                <div class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+                
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+            
+            <!-- Content -->
+            <div class="content">
+                <% if (page === 'about') { %>
+                    <%- include('partials/about', {data: data}) %>
+                <% } else if (page === 'resume') { %>
+                    <%- include('partials/resume', {data: data}) %>
+                <% } else if (page === 'projects') { %>
+                    <%- include('partials/projects', {data: data}) %>
+                <% } else if (page === 'contact') { %>
+                    <%- include('partials/contact', {data: data}) %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/js/main.js"></script>
+</body>
+</html>

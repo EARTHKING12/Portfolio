@@ -1,0 +1,82 @@
+<section class="projects-section">
+    <div class="section-title">
+        <h2>My Projects</h2>
+        <span class="line"></span>
+    </div>
+    
+    <div class="projects-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+        <button class="filter-btn" data-filter="other">Other</button>
+    </div>
+    
+    <div class="projects-container">
+        <% if(data.projects && data.projects.length > 0) { %>
+            <% data.projects.forEach(project => { %>
+                <% if(project.title !== "College Application" && project.name !== "College Application") { %>
+                    <div class="project-card animate-on-scroll" data-category="<%= project.category %>">
+                        <div class="project-image">
+                            <img src="<%= project.image || '/images/project-placeholder.jpg' %>" alt="<%= project.title %>">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <% if(project.demo) { %>
+                                        <a href="<%= project.demo %>" target="_blank" class="project-link">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                    <% } %>
+                                    <% if(project.github) { %>
+                                        <a href="<%= project.github %>" target="_blank" class="project-link">
+                                            <i class="fab fa-github"></i>
+                                        </a>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3><%= project.title || project.name %></h3>
+                            <div class="project-tags">
+                                <% if(project.technologies && project.technologies.length > 0) { %>
+                                    <% project.technologies.forEach(tech => { %>
+                                        <span class="project-tag"><%= tech %></span>
+                                    <% }); %>
+                                <% } %>
+                            </div>
+                            <p><%= project.description %></p>
+                        </div>
+                    </div>
+                <% } %>
+            <% }); %>
+            
+            <!-- Portfolio Website Project -->
+            <div class="project-card animate-on-scroll" data-category="web">
+                <div class="project-image">
+                    <img src="/images/portfolio.png" alt="Portfolio Website">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="/" target="_blank" class="project-link">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="https://github.com/pruthvirajr/portfolio" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Personal Portfolio Website</h3>
+                    <div class="project-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">MongoDB</span>
+                    </div>
+                    <p>A modern, responsive portfolio website built with Node.js and Express. Features include dark/light theme toggle, animated UI elements, and a contact form with MongoDB integration.</p>
+                </div>
+            </div>
+        <% } else { %>
+            <p class="no-projects">No projects to display</p>
+        <% } %>
+    </div>
+</section>

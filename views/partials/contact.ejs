@@ -1,0 +1,76 @@
+<section class="contact-section">
+    <div class="section-title">
+        <h2>Contact Me</h2>
+        <span class="line"></span>
+    </div>
+    
+    <div class="contact-content">
+        <div class="contact-info">
+            <div class="contact-info-item">
+                <div class="icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="text">
+                    <h3>Address</h3>
+                    <p>Pune, Maharashtra, India</p>
+                </div>
+            </div>
+            
+            <div class="contact-info-item">
+                <div class="icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="text">
+                    <h3>Email</h3>
+                    <p><%= data.email %></p>
+                </div>
+            </div>
+            
+            <div class="contact-info-item">
+                <div class="icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="text">
+                    <h3>Phone</h3>
+                    <p><%= data.phone %></p>
+                </div>
+            </div>
+            
+            <div class="contact-info-item">
+                <div class="icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="text">
+                    <h3>Education</h3>
+                    <p>BE Computer Engineering</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-form">
+            <form id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" id="subject" name="subject" placeholder="Subject">
+                </div>
+                
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242118.14199814057!2d73.72287834316403!3d18.524564859944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1650123456789!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</section>
