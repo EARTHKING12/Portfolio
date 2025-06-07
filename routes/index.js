@@ -15,7 +15,7 @@ const personalData = {
     education: [
         {
             degree: "BE (Computer Engineering)",
-            institution: "Shree Chanalya Education Society's Indira College of Engineering and Management, Pune",
+            institution: "Shree Chanakya Education Society's Indira College of Engineering and Management, Pune",
             percentage: ""
         },
         {
